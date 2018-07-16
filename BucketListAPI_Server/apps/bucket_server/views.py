@@ -24,4 +24,15 @@ def addTask(request):
     print("Post recieved")
     Task.objects.create(name=request.POST['objective'])
     return HttpResponse("Task successfully added")
+
+@csrf_exempt
+def editTask(request):
+    print("Recieved connection for edit")
+    if request.method!="POST":
+        return HttpResponse('You are not posting!')
+    print(request.POST)
+    task = Task.objects.filter(id=request.POST['id'])[0]
+    task.name = request.POST['name']
+    task.save()
+    return HttpResponse('Task edited!')
 # Create your views here.
