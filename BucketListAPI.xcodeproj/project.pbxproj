@@ -13,6 +13,7 @@
 		CF400FEB20FD244300100BB2 /* BucketListAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF400FE920FD244300100BB2 /* BucketListAPI.xcdatamodeld */; };
 		CF400FED20FD244400100BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF400FEC20FD244400100BB2 /* Assets.xcassets */; };
 		CF400FF020FD244400100BB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF400FEE20FD244400100BB2 /* LaunchScreen.storyboard */; };
+		CF400FF820FD2F5600100BB2 /* AddEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF400FF720FD2F5600100BB2 /* AddEditVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CF400FEC20FD244400100BB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF400FEF20FD244400100BB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF400FF120FD244400100BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF400FF720FD2F5600100BB2 /* AddEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		CF400FE120FD244300100BB2 /* BucketListAPI */ = {
 			isa = PBXGroup;
 			children = (
+				CF400FF720FD2F5600100BB2 /* AddEditVC.swift */,
 				CF400FE220FD244300100BB2 /* AppDelegate.swift */,
 				CF400FE420FD244300100BB2 /* ViewController.swift */,
 				CF400FE620FD244300100BB2 /* Main.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				CF400FEB20FD244300100BB2 /* BucketListAPI.xcdatamodeld in Sources */,
 				CF400FE520FD244300100BB2 /* ViewController.swift in Sources */,
+				CF400FF820FD2F5600100BB2 /* AddEditVC.swift in Sources */,
 				CF400FE320FD244300100BB2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
