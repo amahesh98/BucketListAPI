@@ -17,6 +17,7 @@ class ViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 70
 //        getAllTasks()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -77,6 +78,30 @@ class ViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "AddSegue", sender: indexPath.row)
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: {
+            action, view, finishAnimation in
+            self.delete(indexPath.row){
+                data, response, error in
+            }
+            finishAnimation(true)
+        })
+        let swipeConfig = UISwipeActionsConfiguration(actions: [deleteAction])
+        return swipeConfig
+    }
+    func delete(_ row: Int, completionHandler: @escaping(_ data: Data?, _ response: URLResponse?, _ error:Error?)->Void){
+        if let urlReq=URL(string:"http://192.168.1.228:8000/deleteTask/"){
+            var request = URLRequest(url:urlReq)
+            request.httpMethod = "POST"
+            let objectID = ids[row]
+            let bodyData = "id=\(objectID)"
+            request.httpBody = bodyData.data(using: .utf8)
+            let session = URLSession.shared
+            let task = session.dataTask(with: request, completionHandler: completionHandler)
+            task.resume()
+        }
     }
 }
 

@@ -36,3 +36,14 @@ def editTask(request):
     task.save()
     return HttpResponse('Task edited!')
 # Create your views here.
+
+@csrf_exempt
+def deleteTask(request):
+    print("Received connectionf or edit")
+    if request.method!="POST":
+        return HttpResponse('You are not posting!')
+    print(request.POST)
+    task = Task.objects.filter(id=request.POST['id'])[0]
+    task.delete()
+    print('Deleting object with id ', request.POST['id'])
+    return HttpResponse('Task deleted!')

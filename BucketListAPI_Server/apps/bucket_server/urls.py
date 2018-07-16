@@ -6,5 +6,6 @@ urlpatterns=[
     url(r'^getTasks/$', views.getTasks),
     # url(r'^addTask/(?P<task_name>.*)/$', views.addTask),
     url(r'^addTask/$', views.addTask),
-    url(r'^editTask/$', views.editTask)
+    url(r'^editTask/$', views.editTask),
+    url(r'^deleteTask/$', views.deleteTask),
 ]
