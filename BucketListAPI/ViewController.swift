@@ -77,7 +77,7 @@ class ViewController: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "AddSegue", sender: indexPath.row)
+//        performSegue(withIdentifier: "AddSegue", sender: indexPath.row)
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -89,6 +89,17 @@ class ViewController: UITableViewController {
             finishAnimation(true)
         })
         let swipeConfig = UISwipeActionsConfiguration(actions: [deleteAction])
+        return swipeConfig
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editAction = UIContextualAction(style: .normal, title:"Edit", handler: {
+            action, view, finishAnimation in
+            finishAnimation(true)
+            self.performSegue(withIdentifier: "AddSegue", sender: indexPath.row)
+        })
+        editAction.backgroundColor = UIColor.green
+        let swipeConfig = UISwipeActionsConfiguration(actions: [editAction])
         return swipeConfig
     }
     func delete(_ row: Int, completionHandler: @escaping(_ data: Data?, _ response: URLResponse?, _ error:Error?)->Void){
